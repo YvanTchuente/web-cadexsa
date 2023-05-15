@@ -1,6 +1,6 @@
     @php
         $path = substr(request()->path(), 0, 1) !== '/' ? '/' . request()->path() : request()->path();
-        $links = [['Home', '/'], ['About Us', '/about'], ['News', '/news'], ['Events', '/events'], ['Gallery', '/photos'], ['Contact Us', '#']];
+        $links = [['Home', '/'], ['About Us', '/about'], ['News', '/news'], ['Events', '/events'], ['Gallery', '/photos'], ['Contact Us', '/contactus']];
 
         if (!auth()->check()) {
             $links[] = ['Log In', '#'];

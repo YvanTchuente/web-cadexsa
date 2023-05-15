@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\InquiryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,8 @@ Route::controller(EventController::class)->group(function () {
 });
 
 Route::get('/photos', [PhotoController::class, 'index'])->name('photos');
+
+Route::controller(InquiryController::class)->group(function () {
+    Route::get('/contactus', 'index')->name('contact-us');
+    Route::post('/contactus', 'store');
+});
