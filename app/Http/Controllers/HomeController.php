@@ -17,6 +17,8 @@ class HomeController extends Controller
     {
         $news = NewsArticle::latest()->take(3)->get();
 
+        $events = Event::where('status', '0')->latest()->take(3)->get();
+
         $testimonials = Testimonial::latest()->take(3)->get();
 
         return view('home', [
@@ -24,6 +26,7 @@ class HomeController extends Controller
             'event_count' => Event::count(),
             'photo_count' => Photo::count(),
             'news' => $news,
+            'events' => $events,
             'testimonials' => $testimonials
         ]);
     }

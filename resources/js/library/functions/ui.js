@@ -1,4 +1,5 @@
 import Carousel from "../classes/carousel.js";
+import Countdown from "../classes/countdown.js";
 
 /**
  * Fades out an element in a given amount of time
@@ -95,5 +96,19 @@ export function start_carousels(carousel_elements) {
 
             carousel.start();
         }
+    }
+}
+
+/**
+ * Starts the given countdowns
+ *
+ * @param {HTMLCollection} countdowns
+ */
+export function start_countdowns(countdown_elements) {
+    for (const countdown_element of countdown_elements) {
+        const targetDate = countdown_element.dataset.targetDate;
+        const countdown = new Countdown(countdown_element, targetDate);
+
+        countdown.start();
     }
 }

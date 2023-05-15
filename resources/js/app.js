@@ -4,6 +4,7 @@ import {
     fadeOut,
     start_counters,
     start_carousels,
+    start_countdowns,
 } from "./library/functions/ui";
 
 const sticky_header_exempted_pages = [];
@@ -32,6 +33,10 @@ document.onreadystatechange = () => {
         fadeOut(loader, 500);
 
         start_carousels(document.querySelectorAll(".carousel"));
+
+        setTimeout(() => {
+            start_countdowns(document.querySelectorAll(".countdown"));
+        }, 500);
     }
 };
 

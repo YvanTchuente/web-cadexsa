@@ -126,6 +126,14 @@
             </div>
         </div>
     </section>
+    @if ($events->count() !== 0)
+        <section class="relative py-[3.75rem]">
+            <div class="container">
+                <h1 class="text-center mb-12 md:text-4xl">Upcoming Events</h1>
+                @include('partials.event-list', ['events' => $events])
+            </div>
+        </section>
+    @endif
     @include('partials.informative-numbers')
     @if ($news->count() !== 0)
         <section class="py-[3.75rem]">
