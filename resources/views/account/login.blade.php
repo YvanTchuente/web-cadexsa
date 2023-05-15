@@ -25,7 +25,9 @@
                     <i
                         class="fa-solid fa-eye password-read-toggle text-gray-500 py-3 px-4 text-sm absolute right-0 cursor-pointer"></i>
                 </div>
-                <p class="text-right"><a href="#" class="text-blue-500">Forgot Password ?</a></p>
+                <p class="text-right">
+                    <a href="{{ route('password.request') }}" class="text-blue-500">Forgot Password ?</a>
+                </p>
             </div>
             <button type="submit" class="button w-full">Login</button>
         </div>
