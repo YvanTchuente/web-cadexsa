@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "121ea3a2fffe49b3ef9aa4d064b28c19",
+    "content-hash": "24ab7ff41c57a4d1746c2466bc470440",
     "packages": [
         {
             "name": "brick/math",
@@ -5137,6 +5137,61 @@
                 }
             ],
             "time": "2023-01-20T17:45:48+00:00"
+        },
+        {
+            "name": "taylornetwork/laravel-username-generator",
+            "version": "2.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/taylornetwork/laravel-username-generator.git",
+                "reference": "f0761073a1209368896559d66fd57a6927c46853"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/taylornetwork/laravel-username-generator/zipball/f0761073a1209368896559d66fd57a6927c46853",
+                "reference": "f0761073a1209368896559d66fd57a6927c46853",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "illuminate/support": ">=5.5",
+                "php": "^7.4|^8.0|^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "*",
+                "psy/psysh": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "TaylorNetwork\\UsernameGenerator\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "UsernameGenerator": "TaylorNetwork\\UsernameGenerator\\Facades\\UsernameGenerator"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TaylorNetwork\\UsernameGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Taylor",
+                    "email": "sam@taylornetwork.ca"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/taylornetwork/laravel-username-generator/issues",
+                "source": "https://github.com/taylornetwork/laravel-username-generator/tree/2.8.0"
+            },
+            "time": "2022-07-29T11:43:51+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
