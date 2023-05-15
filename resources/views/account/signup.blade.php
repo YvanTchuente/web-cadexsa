@@ -198,7 +198,7 @@
             </div>
             @csrf
             <button type="submit" class="button w-full">Register</button>
-            <p class="text-center">Already have an account? <a href="#" class="text-blue-500">Sign
+            <p class="text-center">Already have an account? <a href="{{ route('login') }}" class="text-blue-500">Sign
                     in</a></p>
         </div>
     </form>

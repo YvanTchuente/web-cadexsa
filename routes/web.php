@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\InquiryController;
@@ -46,4 +47,10 @@ Route::controller(SignupController::class)->group(function () {
         Route::get('/signup', 'showSignupForm')->name('signup');
         Route::post('/signup', 'signup');
     });
+});
+
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'showLoginForm')->middleware('guest')->name('login');
+    Route::post('/login', 'login')->middleware('guest');
+    Route::get('/logout', 'logout')->middleware('auth')->name('logout');
 });
