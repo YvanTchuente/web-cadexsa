@@ -29,7 +29,8 @@
                             agreed and took
                             a decision of creating an association which shall regroup all graduate of the school so as to
                             maintain our friendship</p>
-                        <a href="#" class="rounded-button w-fit mx-auto hover:border-white focus:border-white">Read
+                        <a href="{{ route('about') }}"
+                            class="rounded-button w-fit mx-auto hover:border-white focus:border-white">Read
                             About Us</a>
                     </div>
                 </div>
@@ -126,6 +127,9 @@
         </div>
     </section>
     @include('partials.informative-numbers')
+    @if ($testimonials->count() !== 0)
+        @include('partials.testimonials', ['testimonials' => $testimonials])
+    @endif
 @endsection
 
 @section('scripts')

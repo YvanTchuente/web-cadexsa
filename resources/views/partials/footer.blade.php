@@ -7,16 +7,16 @@
                     ex-students of the 2019
                     batch of the <span class='font-[inter-semiBold]'>La Cadenelle Anglo Saxon
                         College</span> situated at pk 10, Douala Bassa after the Ndokoti Junction</p>
-                <a href="#" class="block text-blue-500">Read more</a>
+                <a href="{{ route('about') }}" class="block text-blue-500">Read more</a>
             </div>
             <div class="col-span-12 xs:col-span-6 sm:col-span-4 lg:col-span-2">
                 <h3 class="mb-6">About Us</h3>
                 <ul class="space-y-3">
-                    <li><a href="#">Mission</a></li>
-                    <li><a href="#">Vision</a></li>
-                    <li><a href="#">Occupations</a></li>
-                    <li><a href="#">Administration</a></li>
-                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="{{ route('about') . '#mission' }}">Mission</a></li>
+                    <li><a href="{{ route('about') . '#vision' }}">Vision</a></li>
+                    <li><a href="{{ route('about') . '#occupations' }}">Occupations</a></li>
+                    <li><a href="{{ route('about') . '#administration' }}">Administration</a></li>
+                    <li><a href="{{ route('about') . '#testimonials' }}">Testimonials</a></li>
                 </ul>
             </div>
             <div class="col-span-12 xs:col-span-6 sm:col-span-4 lg:col-span-2">
