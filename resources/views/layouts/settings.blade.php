@@ -49,8 +49,10 @@
                         @endforeach
                         <li
                             class="before:content-[''] before:block before:my-4 before:w-full before:border-t-[1px] before:border-gray-100">
-                            <a href="#" class="text-red-500"><i
-                                    class="fa-solid fa-trash-can pr-2"></i><span>Delete account</span></a>
+                            <a href="{{ route('destroy_account') }}" class="text-red-500">
+                                <i class="fa-solid fa-trash-can pr-2"></i>
+                                <span>Delete account</span>
+                            </a>
                         </li>
                     </ul>
                     <div class="dropdown relative sm:hidden">
