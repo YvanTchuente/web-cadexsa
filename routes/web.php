@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\PasswordResetController;
 
 /*
@@ -47,6 +48,14 @@ Route::controller(SignupController::class)->group(function () {
     Route::middleware('guest')->group(function () {
         Route::get('/signup', 'showSignupForm')->name('signup');
         Route::post('/signup', 'signup');
+    });
+});
+
+Route::controller(VerificationController::class)->group(function () {
+    Route::prefix('/email')->group(function () {
+        Route::get('/verify', 'show')->middleware('auth')->name('verification.notice');
+        Route::get('/verify/{id}/{hash}', 'verify')->middleware(['auth', 'signed'])->name('verification.verify');
+        Route::get('/resend', 'resend')->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
     });
 });
 
