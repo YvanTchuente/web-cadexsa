@@ -1,0 +1,48 @@
+@extends('layouts.auth')
+
+@section('title', 'Password reset - CADEXSA')
+
+@section('content')
+    <form action="{{ route('password.update') }}" method="post"
+        class="lg:w-[30vw] bg-white py-10 px-11 border-[1px] border-gray-200 rounded-lg shadow-[0_0_1rem_rgb(0,0,0,10%)] space-y-4">
+        <h1 class="text-center">Create new password</h1>
+        @if (session('status'))
+            <div class="box success">{{ session('status') }}</div>
+        @elseif ($errors->has('token'))
+            <div class="box error">{{ $errors->first('token') }}</div>
+        @endif
+        <p class="text-center">Your new password must be different from previous used passwords</p>
+        <div class="relative">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" name="password" value="{{ old('password') }}" class="form-input pr-10"
+                required />
+            <i
+                class="fa-solid fa-eye password-read-toggle text-gray-500 py-3 px-4 text-sm absolute right-0 cursor-pointer"></i>
+            <i class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute opacity-0"></i>
+            <i class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute opacity-0"></i>
+            <div class="validation-error">
+                @error('password')
+                    {{ $message }}
+                @enderror
+            </div>
+        </div>
+        <div class="relative">
+            <label for="password_confirmation" class="form-label">Confirm password</label>
+            <input type="password" id="password_confirmation" name="password_confirmation"
+                value="{{ old('password_confirmation') }}" class="form-input pr-10" required />
+            <i
+                class="fa-solid fa-eye password-read-toggle text-gray-500 py-3 px-4 text-sm absolute right-0 cursor-pointer"></i>
+            <i class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute opacity-0"></i>
+            <i class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute opacity-0"></i>
+            <div class="validation-error">
+                @error('password_confirmation')
+                    {{ $message }}
+                @enderror
+            </div>
+        </div>
+        <input type="hidden" name="email" value="{{ request()->input('email') }}">
+        <input type="hidden" name="token" value="{{ $token }}">
+        @csrf
+        <button type="submit" class="button w-full">Reset Password</button>
+    </form>
+@endsection

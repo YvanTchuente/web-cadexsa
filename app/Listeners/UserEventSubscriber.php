@@ -26,6 +26,14 @@ class UserEventSubscriber
     }
 
     /**
+     * Handle user logout events.
+     */
+    public function handlePasswordReset($event)
+    {
+        Log::info('{username} has reset their password.', ['username' => $event->user->username]);
+    }
+
+    /**
      * Register the listeners for the subscriber.
      *
      * @param  \Illuminate\Events\Dispatcher  $events
@@ -36,6 +44,7 @@ class UserEventSubscriber
         return [
             Login::class => 'handleUserLogin',
             Logout::class => 'handleUserLogout',
+            PasswordReset::class => 'handlePasswordReset'
         ];
     }
 }

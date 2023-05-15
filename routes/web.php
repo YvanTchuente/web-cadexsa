@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\PasswordResetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,4 +54,13 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'showLoginForm')->middleware('guest')->name('login');
     Route::post('/login', 'login')->middleware('guest');
     Route::get('/logout', 'logout')->middleware('auth')->name('logout');
+});
+
+Route::middleware('guest')->group(function () {
+    Route::controller(PasswordResetController::class)->group(function () {
+        Route::get('/forgot-password', 'showLinkRequestForm')->name('password.request');
+        Route::post('/forgot-password', 'sendResetLinkEmail')->name('password.email');
+        Route::get('/reset-password/{token}', 'showResetForm')->name('password.reset');
+        Route::post('/reset-password', 'resetPassword')->name('password.update');
+    });
 });
