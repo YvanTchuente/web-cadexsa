@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --header_height: 0;
+}
+
 @layer base {
     @font-face {
         font-family: Inter;
@@ -32,5 +36,72 @@
     @font-face {
         font-family: Inter-light;
         src: url("../fonts/Inter-Light.ttf");
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: Inter-bold;
+    }
+
+    h1 {
+        @apply text-2xl;
+    }
+
+    h2 {
+        @apply text-xl;
+    }
+
+    h3 {
+        @apply text-lg;
+    }
+}
+
+@layer components {
+    .dropdown {
+        @apply absolute hidden w-full p-0 z-50 bg-white opacity-0 border-none text-left shadow-md overflow-hidden transition-all;
+    }
+
+    /* Buttons */
+
+    .button {
+        @apply text-white inline-block py-2 px-6 relative cursor-pointer rounded-lg bg-blue-500 hover:bg-blue-400;
+    }
+
+    .rounded-button {
+        @apply text-white inline-block py-2 px-6 relative cursor-pointer rounded-3xl bg-blue-500 hover:bg-blue-400;
+    }
+
+    /* Carousel classes */
+
+    .carousel {
+        @apply relative overflow-hidden;
+    }
+
+    .carousel-item {
+        @apply w-full h-full px-[4rem] float-left hidden relative -mr-[100%];
+    }
+
+    .carousel-item.active {
+        @apply block;
+    }
+
+    .carousel-item.next-button-next-item {
+        @apply animate-[carousel-go-next-next-item-slide-in_0.2s_ease-in-out];
+    }
+
+    .carousel-item.next-button-previous-item {
+        @apply animate-[carousel-go-next-previous-item-slide-out_0.2s_ease-in-out];
+    }
+
+    .carousel-item.previous-button-next-item {
+        @apply animate-[carousel-rewind-next-item-slide-in_0.2s_ease-in-out];
+    }
+
+    .carousel-item.previous-button-previous-item {
+        @apply animate-[carousel-rewind-previous-item-slide-out_0.2s_ease-in-out];
     }
 }
