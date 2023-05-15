@@ -136,3 +136,11 @@
 article.news-article:hover img {
     @apply scale-125;
 }
+
+article.photo:hover img {
+    @apply scale-125;
+}
+
+article.photo:hover > *:last-child {
+    @apply opacity-80;
+}
