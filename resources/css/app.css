@@ -61,7 +61,7 @@
 }
 
 @layer components {
-    .dropdown {
+    .dropdown-list {
         @apply absolute hidden w-full p-0 z-50 bg-white opacity-0 border-none text-left shadow-md overflow-hidden transition-all;
     }
 

@@ -95,7 +95,7 @@
                         <div
                             class="select relative rounded-md bg-white py-2 pl-6 pr-12 border-2 border-gray-200 after:content-[''] after:block after:absolute after:inset-y-[35%] after:right-4 after:w-[10px] after:h-[10px] after:border-b-4 after:border-b-gray-500 after:border-r-4 after:border-r-gray-500 after:rotate-45 after:transition duration-300">
                             Batch</div>
-                        <ul class="dropdown w-full top-[150%] left-0 overflow-hidden shadow-lg rounded">
+                        <ul class="dropdown-list w-full top-[150%] left-0 overflow-hidden shadow-lg rounded">
                             <li
                                 class="transition duration-[0.3s] py-2 px-6 capitalize text-white bg-blue-500 hover:text-white hover:bg-blue-500">
                                 Batch</li>
@@ -125,7 +125,7 @@
                         <div
                             class="select relative rounded-md bg-white py-2 pl-6 pr-12 border-2 border-gray-200 after:content-[''] after:block after:absolute after:inset-y-[35%] after:right-4 after:w-[10px] after:h-[10px] after:border-b-4 after:border-b-gray-500 after:border-r-4 after:border-r-gray-500 after:rotate-45 after:transition duration-300">
                             Field of studies</div>
-                        <ul class="dropdown w-full top-[150%] left-0 overflow-hidden shadow-lg rounded">
+                        <ul class="dropdown-list w-full top-[150%] left-0 overflow-hidden shadow-lg rounded">
                             <li class="transition duration-[0.3s] py-2 px-6 text-white bg-blue-500">
                                 Field of studies</li>
                             @foreach (\App\Enumerations\FieldOfStudy::cases() as $field)

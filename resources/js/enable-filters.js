@@ -48,11 +48,11 @@ if (document.getElementsByClassName("filter")) {
                                 .parentElement;
                     }
 
-                    // Hide all non-hidden dropdowns
-                    for (const dropdown of filter.querySelectorAll(
-                        ".dropdown"
+                    // Hide all non-hidden dropdown lists
+                    for (const dropdown_list of filter.querySelectorAll(
+                        ".dropdown-list"
                     )) {
-                        hideDropdown(dropdown);
+                        hideDropdownList(dropdown_list);
                     }
 
                     // Reset all select arrow
@@ -67,16 +67,16 @@ if (document.getElementsByClassName("filter")) {
                             )) {
                                 resetSelectArrow(select);
                             }
-                            for (const dropdown of filter.querySelectorAll(
-                                ".dropdown"
+                            for (const dropdown_list of filter.querySelectorAll(
+                                ".dropdown-list"
                             )) {
-                                hideDropdown(dropdown);
+                                hideDropdownList(dropdown_list);
                             }
                         }
                     });
 
-                    // Show the specific dropdown
-                    showDropdown(select.nextElementSibling);
+                    // Show the specific dropdown list
+                    showDropdownList(select.nextElementSibling);
 
                     // Rotates the select arrow
                     rotateSelectArrow(select);
@@ -109,25 +109,25 @@ if (document.getElementsByClassName("filter")) {
                         }
                     }
 
-                    hideDropdown(option_list);
+                    hideDropdownList(option_list);
                     rotateSelectArrow(option_list.previousElementSibling);
                 });
             }
         }
     }
 
-    function showDropdown(dropdown) {
-        dropdown.classList.add("block");
-        dropdown.classList.add("top-[105%]");
-        dropdown.classList.add("opacity-100");
-        dropdown.classList.remove("top-[150%]");
+    function showDropdownList(dropdown_list) {
+        dropdown_list.classList.add("block");
+        dropdown_list.classList.add("top-[105%]");
+        dropdown_list.classList.add("opacity-100");
+        dropdown_list.classList.remove("top-[150%]");
     }
 
-    function hideDropdown(dropdown) {
-        dropdown.classList.remove("block");
-        dropdown.classList.remove("opacity-100");
-        dropdown.classList.remove("top-[105%]");
-        dropdown.classList.toggle("top-[150%]");
+    function hideDropdownList(dropdown_list) {
+        dropdown_list.classList.remove("block");
+        dropdown_list.classList.remove("opacity-100");
+        dropdown_list.classList.remove("top-[105%]");
+        dropdown_list.classList.toggle("top-[150%]");
     }
 
     function rotateSelectArrow(select) {

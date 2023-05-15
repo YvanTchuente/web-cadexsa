@@ -8,7 +8,7 @@
                     {{ $criterion['name'] }}
                 </div>
                 <ul
-                    class="dropdown w-full top-[150%] left-0 shadow-[0_0_0.5rem_rgba(0,0,0,0.2)] rounded-md overflow-hidden transition">
+                    class="dropdown-list w-full top-[150%] left-0 shadow-[0_0_0.5rem_rgba(0,0,0,0.2)] rounded-md overflow-hidden transition">
                     <li
                         class="py-2 px-6 capitalize hover:text-white hover:bg-blue-500 text-white bg-blue-500 transition">
                         {{ $criterion['name'] }}
