@@ -8,7 +8,7 @@ import {
     start_countdowns,
 } from "./library/functions/ui";
 
-const sticky_header_exempted_pages = ["/signup"];
+const sticky_header_exempted_pages = ["/signup", "/login"];
 
 window.addEventListener("scroll", () => {
     if (!sticky_header_exempted_pages.includes(location.pathname)) {

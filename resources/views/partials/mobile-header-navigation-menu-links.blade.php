@@ -3,7 +3,7 @@
         $links = [['Home', '/'], ['About Us', '/about'], ['News', '/news'], ['Events', '/events'], ['Gallery', '/photos'], ['Contact Us', '/contactus']];
 
         if (!auth()->check()) {
-            $links[] = ['Log In', '#'];
+            $links[] = ['Log In', route('login')];
             $links[] = ['Join Us', route('signup')];
         }
     @endphp

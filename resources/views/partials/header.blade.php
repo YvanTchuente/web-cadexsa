@@ -18,7 +18,7 @@
                 @include('partials.hamburger-menu-icon')
             </div>
             <div nav class="hidden xl:block">
-                <a href="#" class="button text-black bg-white hover:bg-white hover:text-blue-500">
+                <a href="{{ route('login') }}" class="button text-black bg-white hover:bg-white hover:text-blue-500">
                     Log In
                 </a>
                 <a href="{{ route('signup') }}" class="rounded-button">Sign Up</a>

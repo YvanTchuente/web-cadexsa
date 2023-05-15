@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Events\InquiryRegistered;
+use App\Listeners\UserEventSubscriber;
 use Illuminate\Auth\Events\Registered;
 use App\Listeners\SendInquiryRegisteredNotification;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -22,6 +23,15 @@ class EventServiceProvider extends ServiceProvider
         InquiryRegistered::class => [
             SendInquiryRegisteredNotification::class
         ]
+    ];
+
+    /**
+     * The subscriber classes to register.
+     *
+     * @var array
+     */
+    protected $subscribe = [
+        UserEventSubscriber::class,
     ];
 
     /**
