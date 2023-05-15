@@ -93,3 +93,31 @@ mobile_menu_icon.addEventListener("click", (e) => {
         "after:transition-[top_0.2s_ease-in-out,transform_0.2s_0.2s_ease-in-out]"
     );
 });
+
+if (document.getElementById("sign-in-tools-opener")) {
+    const sign_in_tools_opener = document.getElementById(
+        "sign-in-tools-opener"
+    );
+
+    sign_in_tools_opener.addEventListener("click", (e) => {
+        const target = e.currentTarget;
+        target.classList.toggle("fa-angle-up");
+
+        const sign_in_tools = document.getElementById("sign-in-tools");
+        sign_in_tools.classList.toggle("block");
+        sign_in_tools.classList.toggle("animate-[fadeInUp_150ms_ease-in-out]");
+        sign_in_tools.classList.toggle("opacity-100");
+    });
+}
+
+window.addEventListener("click", (e) => {
+    if (
+        document.getElementById("sign-in-tools-opener") &&
+        document
+            .getElementById("sign-in-tools-opener")
+            .classList.contains("fa-angle-up") &&
+        !e.target.matches("#sign-in-tools-opener")
+    ) {
+        document.getElementById("sign-in-tools-opener").click();
+    }
+});
