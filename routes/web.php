@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,5 @@ Route::controller(EventController::class)->group(function () {
     Route::get('/events', 'index')->name('events');
     Route::get('/events/{event}', 'show')->name('event');
 });
+
+Route::get('/photos', [PhotoController::class, 'index'])->name('photos');
