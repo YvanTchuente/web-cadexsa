@@ -11,11 +11,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use TaylorNetwork\UsernameGenerator\GeneratesUsernames;
 use TaylorNetwork\UsernameGenerator\FindSimilarUsernames;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, FindSimilarUsernames;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, FindSimilarUsernames, GeneratesUsernames;
 
     const CREATED_AT = 'registered_at';
 
@@ -64,6 +65,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function fullname()
     {
         return $this->firstname . " " . $this->lastname;
+    }
+
+    public function getField(): string
+    {
+        return $this->fullname();
     }
 
     /**

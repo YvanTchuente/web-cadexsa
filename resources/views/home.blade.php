@@ -15,7 +15,8 @@
                         <p>On top of providing your affection to our alma-mater which
                             is, for many of us, the main reason, your membership consolidates our unity and friendship and
                             affords many advantages like career opportunities</p>
-                        <a href="#" class="rounded-button w-fit mx-auto hover:border-white focus:border-white">Join
+                        <a href="{{ route('signup') }}"
+                            class="rounded-button w-fit mx-auto hover:border-white focus:border-white">Join
                             our network</a>
                     </div>
                 </div>

@@ -1,3 +1,9 @@
+import axios from "axios";
+
+axios
+    .get("/valid_countries.json")
+    .then((response) => (window.valid_countries = response.data.countries));
+
 export function validateName(name) {
     const regex = /^[a-zA-Z]{3,}$/;
 
@@ -37,6 +43,23 @@ export function validatePhone(phone) {
     } else {
         return false;
     }
+}
+
+/**
+ * @param {string} country
+ */
+export function validateCountry(country) {
+    country = country.replace(/[\\[.+*?(){|^$]/g, "\\$&");
+
+    const regex = new RegExp("^" + country + "$", "i");
+
+    for (let i = 0; i < window.valid_countries.length; i++) {
+        if (window.valid_countries[i].match(regex)) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 /**

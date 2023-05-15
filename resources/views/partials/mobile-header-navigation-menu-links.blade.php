@@ -4,7 +4,7 @@
 
         if (!auth()->check()) {
             $links[] = ['Log In', '#'];
-            $links[] = ['Join Us', '#'];
+            $links[] = ['Join Us', route('signup')];
         }
     @endphp
     @foreach ($links as $link)
