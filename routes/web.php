@@ -90,6 +90,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/profile', 'editProfile');
             Route::get('/password', 'showPasswordEditForm')->name('settings.password');
             Route::post('/password', 'editPassword');
+            Route::get('/destroy', 'confirmAccountDeletion')->name('destroy_account');
+            Route::post('/destroy', 'deleteAccount');
         });
     });
 });

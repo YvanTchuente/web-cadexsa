@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Facades\Storage;
@@ -134,5 +135,19 @@ class AccountController extends Controller
             'success',
             "Your password has been reset successfully"
         );
+    }
+
+    public function confirmAccountDeletion()
+    {
+        return view('account.delete');
+    }
+
+    public function deleteAccount()
+    {
+        $user = request()->user();
+        $user->delete();
+        Auth::logout();
+
+        return redirect()->route('login');
     }
 }
