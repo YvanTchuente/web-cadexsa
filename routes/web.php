@@ -8,6 +8,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\PasswordResetController;
@@ -71,5 +72,24 @@ Route::middleware('guest')->group(function () {
         Route::post('/forgot-password', 'sendResetLinkEmail')->name('password.email');
         Route::get('/reset-password/{token}', 'showResetForm')->name('password.reset');
         Route::post('/reset-password', 'resetPassword')->name('password.update');
+    });
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::controller(AccountController::class)->group(function () {
+        Route::prefix('/members/{username}')->group(function () {
+            Route::get('/', 'showProfile')->name('member.profile');
+            Route::get('/articles', 'showArticles')->name('member.articles');
+            Route::get('/photos', 'showPhotos')->name('member.photos');
+        });
+
+        Route::prefix('/account')->group(function () {
+            Route::get('/', 'showAccountSettings')->name('settings.general');
+            Route::post('/', 'editAccount');
+            Route::get('/profile', 'showProfileSettings')->name('settings.profile');
+            Route::post('/profile', 'editProfile');
+            Route::get('/password', 'showPasswordEditForm')->name('settings.password');
+            Route::post('/password', 'editPassword');
+        });
     });
 });

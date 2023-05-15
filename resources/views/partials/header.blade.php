@@ -24,7 +24,7 @@
                 <div>
                     <img src="{{ auth()->user()->avatar }}" class="w-10 h-10 object-cover inline-block rounded-full mr-1" />
                     <i class="fa-solid fa-angle-down cursor-pointer" id="sign-in-tools-opener"></i>
-                    <div class="dropdown w-fit top-[85%] right-[5%] border-[1px] border-solid border-gray-200 p-4 text-black rounded-2xl shadow-[0_0_0.5rem_rgba(0,0,0,0.1)]"
+                    <div class="dropdown-list w-fit top-[85%] right-[5%] border-[1px] border-solid border-gray-200 p-4 text-black rounded-2xl shadow-[0_0_0.5rem_rgba(0,0,0,0.1)]"
                         id="sign-in-tools">
                         <div
                             class="space-x-2 after:content-[''] after:block after:w-full after:mt-3 after:mb-2 after:border-t-[1px] after:border-gray-300">
@@ -38,21 +38,21 @@
                         </div>
                         <ul>
                             <li>
-                                <a href="#"
+                                <a href="{{ route('member.profile', ['username' => auth()->user()->username]) }}"
                                     class="py-2 flex gap-x-3 items-center w-full rounded-lg px-2 hover:bg-blue-100 hover:text-blue-600">
                                     <i class="fa-solid fa-user"></i>
                                     <span>Profile</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="{{ route('member.articles', ['username' => auth()->user()->username]) }}"
                                     class="py-2 flex gap-x-3 items-center w-full rounded-lg px-2 hover:bg-blue-100 hover:text-blue-600">
                                     <i class="fa-solid fa-newspaper"></i>
                                     <span>News Articles</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="{{ route('member.photos', ['username' => auth()->user()->username]) }}"
                                     class="py-2 flex gap-x-3 items-center w-full rounded-lg px-2 hover:bg-blue-100 hover:text-blue-600">
                                     <i class="fa-solid fa-images"></i>
                                     <span>Photos</span>
@@ -60,14 +60,14 @@
                             </li>
                             <li
                                 class="before:content-[''] before:block before:my-2 before:w-full before:border-t-[1px] before:border-gray-300">
-                                <a href="#"
+                                <a href="{{ route('settings.profile') }}"
                                     class="py-2 flex gap-x-3 items-center w-full rounded-lg px-2 hover:bg-blue-100 hover:text-blue-600">
                                     <i class="fa-solid fa-user-cog"></i>
                                     <span>Profile Settings</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="{{ route('settings.general') }}"
                                     class="py-2 flex gap-x-3 items-center w-full rounded-lg px-2 hover:bg-blue-100 hover:text-blue-600">
                                     <i class="fa-solid fa-cog"></i>
                                     <span>Account Settings</span>

@@ -13,10 +13,12 @@ const sticky_header_exempted_pages = [
     "/login",
     "/forgot-password",
     "/reset-password",
+    "/members(/.+)?",
+    "/account(/.+)?",
 ];
 
 window.addEventListener("scroll", () => {
-    if (!sticky_header_exempted_pages.includes(location.pathname)) {
+    if (shouldHaveStickyHeader(location.pathname)) {
         let header = document.querySelector("body > header");
         const scrolling_state_classes = [
             "animate-[fadeInDown_0.5s_ease-in-out]",
@@ -31,6 +33,13 @@ window.addEventListener("scroll", () => {
         }
     }
     start_counters(100);
+
+    function shouldHaveStickyHeader(current_pathname) {
+        return !sticky_header_exempted_pages.some((page) => {
+            const regex = new RegExp("^" + page + "$");
+            return regex.test(current_pathname);
+        });
+    }
 });
 
 document.onreadystatechange = () => {
@@ -126,3 +135,15 @@ window.addEventListener("click", (e) => {
         document.getElementById("sign-in-tools-opener").click();
     }
 });
+
+if (document.getElementsByClassName("dropdown")) {
+    const dropdowns = document.getElementsByClassName("dropdown");
+    for (const dropdown of dropdowns) {
+        const opener = dropdown.querySelector(".opener");
+        opener.onclick = () => {
+            const dropdown_list = dropdown.querySelector(".dropdown-list");
+            dropdown_list.classList.toggle("block");
+            dropdown_list.classList.toggle("opacity-100");
+        };
+    }
+}
