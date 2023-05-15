@@ -127,6 +127,20 @@
         </div>
     </section>
     @include('partials.informative-numbers')
+    @if ($news->count() !== 0)
+        <section class="py-[3.75rem]">
+            <div class="container">
+                <h1 class="text-center mb-12 md:text-4xl">Recent News</h1>
+                <div class="grid grid-cols-3 gap-6">
+                    @foreach ($news as $newsArticle)
+                        <div class="col-span-3 lg:col-span-1">
+                            @include('partials.news-article', ['newsArticle' => $newsArticle])
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
     @if ($testimonials->count() !== 0)
         @include('partials.testimonials', ['testimonials' => $testimonials])
     @endif

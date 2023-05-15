@@ -1,4 +1,5 @@
 import "./bootstrap";
+import "./enable-filters";
 import {
     fadeOut,
     start_counters,

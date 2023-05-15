@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\AboutController;
 
 /*
@@ -18,3 +19,8 @@ use App\Http\Controllers\AboutController;
 Route::get('/', HomeController::class)->name('home');
 
 Route::get('/about', AboutController::class)->name('about');
+
+Route::controller(NewsController::class)->group(function () {
+    Route::get('/news', 'index')->name('news');
+    Route::get('/news/{newsArticle}', 'show')->name('news_article');
+});
