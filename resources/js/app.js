@@ -1,5 +1,6 @@
 import "./bootstrap";
 import "./enable-filters";
+import "./validate-form-inputs";
 import {
     fadeOut,
     start_counters,
@@ -37,6 +38,14 @@ document.onreadystatechange = () => {
         setTimeout(() => {
             start_countdowns(document.querySelectorAll(".countdown"));
         }, 500);
+
+        if (document.getElementsByClassName("box")) {
+            for (const box of document.getElementsByClassName("box")) {
+                setTimeout(() => {
+                    fadeOut(box, 1000);
+                }, 10000);
+            }
+        }
     }
 };
 
