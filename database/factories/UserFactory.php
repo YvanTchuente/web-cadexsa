@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Facades\Hash;
+use App\Enumerations\FieldOfStudy;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -17,12 +18,23 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        foreach (FieldOfStudy::cases() as $field) {
+            $fields[] = $field->value;
+        }
+        $rand_key = array_rand($fields);
+
         return [
-            'name' => fake()->name(),
+            'username' => fake()->userName(),
+            'password' => Hash::make('W5$FY&L9l8k9LsJ'),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'firstname' => fake()->firstName(),
+            'lastname' => fake()->lastName(),
+            'batch' => fake()->year(),
+            'field_of_study' => $fields[$rand_key],
+            'country' => fake()->country(),
+            'city' => fake()->city(),
+            'phone' => fake()->phoneNumber(),
+            'avatar' => '/images/graphics/default-profile-picture.png',
         ];
     }
 
