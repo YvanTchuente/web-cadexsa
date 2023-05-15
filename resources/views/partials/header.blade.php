@@ -21,7 +21,7 @@
                 <a href="#" class="button text-black bg-white hover:bg-white hover:text-blue-500">
                     Log In
                 </a>
-                <a href="#" class="rounded-button">Sign Up</a>
+                <a href="{{ route('signup') }}" class="rounded-button">Sign Up</a>
             </div>
         </div>
     </div>

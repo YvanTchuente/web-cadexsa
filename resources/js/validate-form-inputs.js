@@ -71,6 +71,23 @@ if (document.getElementsByName("phone")) {
         });
     }
 }
+if (document.getElementsByName("country")) {
+    const countries = document.getElementsByName("country");
+    for (const country of countries) {
+        country.addEventListener("keyup", (event) => {
+            const country = event.currentTarget;
+            if (country.value) {
+                validation.validationEngine(
+                    country,
+                    validation.validateCountry,
+                    "Invalid country"
+                );
+            } else {
+                cleanup(country);
+            }
+        });
+    }
+}
 
 if (document.getElementsByClassName("password-read-toggle")) {
     const password_read_toggles = document.getElementsByClassName(
