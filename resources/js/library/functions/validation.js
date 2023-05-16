@@ -1,4 +1,4 @@
-import { Country } from "country-state-city";
+import { Country, City } from "country-state-city";
 
 export function validateName(name) {
     const regex = /^[a-zA-Z]{3,}$/;
@@ -55,6 +55,19 @@ export function validateCountry(country) {
 }
 
 /**
+ * @param {string} city
+ */
+export function validateCity(city) {
+    for (const valid_city of City.getAllCities()) {
+        if (city.toLowerCase() === valid_city.name.toLowerCase()) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
  * @param {HTMLInputElement} input The form input
  * @param {string} message
  */
@@ -83,6 +96,7 @@ export function validationEngine(input, validator, message) {
 }
 
 export default {
+    validateCity,
     validateName,
     validateEmail,
     validatePhone,

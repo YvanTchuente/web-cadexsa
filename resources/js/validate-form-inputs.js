@@ -89,6 +89,24 @@ if (document.getElementsByName("country")) {
     }
 }
 
+if (document.getElementsByName("city")) {
+    const cities = document.getElementsByName("city");
+    for (const city of cities) {
+        city.addEventListener("keyup", (event) => {
+            const city = event.currentTarget;
+            if (city.value) {
+                validation.validationEngine(
+                    city,
+                    validation.validateCity,
+                    "Invalid city"
+                );
+            } else {
+                cleanup(city);
+            }
+        });
+    }
+}
+
 if (document.getElementsByClassName("password-read-toggle")) {
     const password_read_toggles = document.getElementsByClassName(
         "password-read-toggle"
