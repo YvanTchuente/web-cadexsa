@@ -53,4 +53,12 @@ class PhotoController extends Controller
             ]
         );
     }
+
+    /**
+     * Display the specified photo.
+     */
+    public function show(Photo $photo)
+    {
+        return view('photo', ['photo' => $photo]);
+    }
 }
