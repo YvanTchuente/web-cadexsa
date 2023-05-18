@@ -4,7 +4,7 @@
         <div class="w-full h-full flex flex-col">
             <div class="flex-[0_1_auto]"><i class="fa-solid fa-calendar-day mr-3"></i>{{ $photo->shot_on->format('F j, Y') }}</div>
             <div class="flex justify-center items-center flex-[3_1_auto]">
-                <a href="#" class="w-16 h-16 block">
+                <a href="{{ route('photo', ['photo' => $photo->id]) }}" class="w-16 h-16 block">
                     <img src="/images/graphics/zoom-icon.png" class="w-full h-full" />
                 </a>
             </div>

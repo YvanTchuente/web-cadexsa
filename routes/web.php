@@ -38,7 +38,10 @@ Route::controller(EventController::class)->group(function () {
     Route::get('/events/{event}', 'show')->name('event');
 });
 
-Route::get('/photos', [PhotoController::class, 'index'])->name('photos');
+Route::controller(PhotoController::class)->group(function () {
+    Route::get('/photos', 'index')->name('photos');
+    Route::get('/photos/{photo}', 'show')->name('photo');
+});
 
 Route::controller(InquiryController::class)->group(function () {
     Route::get('/contactus', 'index')->name('contact-us');
