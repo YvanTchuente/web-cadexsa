@@ -4,7 +4,7 @@
     @foreach ([['Home', '/'], ['About Us', '/about'], ['News', '/news'], ['Events', '/events'], ['Gallery', '/photos'], ['Contact Us', '/contactus']] as $link)
         <li class="inline-block py-2 px-5 text-center">
             <a href="{{ $link[1] }}"
-                class="block font-[inter-semibold] @if (preg_match('/^' . preg_quote($link[1], '/') . '(\/.+)?$/', $path)) text-blue-500 @else sm:hover:text-blue-500 @endif">
+                class="@if (preg_match('/^' . preg_quote($link[1], '/') . '(\/.+)?$/', $path)) text-blue-500 @else sm:hover:text-blue-500 @endif block font-[inter-semibold]">
                 {{ $link[0] }}
             </a>
         </li>

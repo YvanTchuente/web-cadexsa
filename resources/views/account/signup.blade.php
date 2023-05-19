@@ -4,12 +4,12 @@
 
 @section('content')
     <form action="{{ route('signup') }}" method="post"
-        class="sm:w-[600px] bg-white border-[1px] border-gray-200 rounded-lg shadow-[0_0_1rem_rgb(0,0,0,10%)]">
-        <div class="py-5 px-8 border-b-[1px] border-b-gray-200 text-center space-y-1">
+        class="rounded-lg border-[1px] border-gray-200 bg-white shadow-[0_0_1rem_rgb(0,0,0,10%)] sm:w-[600px]">
+        <div class="space-y-1 border-b-[1px] border-b-gray-200 py-5 px-8 text-center">
             <h1 class="text-3xl">Sign up</h1>
             <p>Join our vibrant community of ex-students.</p>
         </div>
-        <div class="pt-4 pb-8 px-8 space-y-4">
+        <div class="space-y-4 px-8 pt-4 pb-8">
             @if (session('success'))
                 <div class="box success">{{ session('success') }}</div>
             @elseif (session('error'))
@@ -21,9 +21,9 @@
                     <input type="text" id="firstname" name="firstname" value="{{ old('firstname') }}"
                         class="form-input name pr-10" required />
                     <i
-                        class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
+                        class="fa-solid fa-exclamation-circle failure-icon absolute right-0 py-3 px-4 text-sm text-red-500 opacity-0"></i>
                     <i
-                        class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
+                        class="far fa-check-circle success-icon absolute right-0 py-3 px-4 text-sm text-green-500 opacity-0"></i>
                     <div class="validation-error">
                         @error('firstname')
                             {{ $message }}
@@ -35,9 +35,9 @@
                     <input type="text" id="lastname" name="lastname" value="{{ old('lastname') }}"
                         class="form-input name pr-10" required />
                     <i
-                        class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
+                        class="fa-solid fa-exclamation-circle failure-icon absolute right-0 py-3 px-4 text-sm text-red-500 opacity-0"></i>
                     <i
-                        class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
+                        class="far fa-check-circle success-icon absolute right-0 py-3 px-4 text-sm text-green-500 opacity-0"></i>
                     <div class="validation-error">
                         @error('lastname')
                             {{ $message }}
@@ -50,8 +50,8 @@
                 <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-input pr-10"
                     required />
                 <i
-                    class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
-                <i class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
+                    class="fa-solid fa-exclamation-circle failure-icon absolute right-0 py-3 px-4 text-sm text-red-500 opacity-0"></i>
+                <i class="far fa-check-circle success-icon absolute right-0 py-3 px-4 text-sm text-green-500 opacity-0"></i>
                 <div class="validation-error">
                     @error('email')
                         {{ $message }}
@@ -63,10 +63,10 @@
                 <input type="password" id="password" name="password" value="{{ old('password') }}" class="form-input pr-10"
                     required />
                 <i
-                    class="fa-solid fa-eye password-read-toggle text-gray-500 py-3 px-4 text-sm absolute right-0 cursor-pointer"></i>
+                    class="fa-solid fa-eye password-read-toggle absolute right-0 cursor-pointer py-3 px-4 text-sm text-gray-500"></i>
                 <i
-                    class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute opacity-0"></i>
-                <i class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute opacity-0"></i>
+                    class="fa-solid fa-exclamation-circle failure-icon absolute py-3 px-4 text-sm text-red-500 opacity-0"></i>
+                <i class="far fa-check-circle success-icon absolute py-3 px-4 text-sm text-green-500 opacity-0"></i>
                 <div class="validation-error">
                     @error('password')
                         {{ $message }}
@@ -78,10 +78,10 @@
                 <input type="password" id="password_confirmation" name="password_confirmation"
                     value="{{ old('password_confirmation') }}" class="form-input pr-10" required />
                 <i
-                    class="fa-solid fa-eye password-read-toggle text-gray-500 py-3 px-4 text-sm absolute right-0 cursor-pointer"></i>
+                    class="fa-solid fa-eye password-read-toggle absolute right-0 cursor-pointer py-3 px-4 text-sm text-gray-500"></i>
                 <i
-                    class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute opacity-0"></i>
-                <i class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute opacity-0"></i>
+                    class="fa-solid fa-exclamation-circle failure-icon absolute py-3 px-4 text-sm text-red-500 opacity-0"></i>
+                <i class="far fa-check-circle success-icon absolute py-3 px-4 text-sm text-green-500 opacity-0"></i>
                 <div class="validation-error">
                     @error('password_confirmation')
                         {{ $message }}
@@ -91,17 +91,17 @@
             <div class="form-element-container-grouping filter">
                 <div class="col-span-12 sm:col-span-6">
                     <label class="form-label">Graduation year</label>
-                    <div class="filtration_criterion col-span-12 sm:col-span-9 relative cursor-pointer">
+                    <div class="filtration_criterion relative col-span-12 cursor-pointer sm:col-span-9">
                         <div
-                            class="select relative rounded-md bg-white py-2 pl-6 pr-12 border-2 border-gray-200 after:content-[''] after:block after:absolute after:inset-y-[35%] after:right-4 after:w-[10px] after:h-[10px] after:border-b-4 after:border-b-gray-500 after:border-r-4 after:border-r-gray-500 after:rotate-45 after:transition duration-300">
+                            class="select relative rounded-md border-2 border-gray-200 bg-white py-2 pl-6 pr-12 duration-300 after:absolute after:inset-y-[35%] after:right-4 after:block after:h-[10px] after:w-[10px] after:rotate-45 after:border-b-4 after:border-r-4 after:border-b-gray-500 after:border-r-gray-500 after:transition after:content-['']">
                             Batch</div>
-                        <ul class="dropdown-list w-full top-[150%] left-0 overflow-hidden shadow-lg rounded">
+                        <ul class="dropdown-list top-[150%] left-0 w-full overflow-hidden rounded shadow-lg">
                             <li
-                                class="transition duration-[0.3s] py-2 px-6 capitalize text-white bg-blue-500 hover:text-white hover:bg-blue-500">
+                                class="bg-blue-500 py-2 px-6 capitalize text-white transition duration-[0.3s] hover:bg-blue-500 hover:text-white">
                                 Batch</li>
                             @foreach (range((int) date('Y'), 2019) as $year)
                                 <li
-                                    class="transition duration-[0.3s] py-2 px-6 capitalize hover:text-white hover:bg-blue-500">
+                                    class="py-2 px-6 capitalize transition duration-[0.3s] hover:bg-blue-500 hover:text-white">
                                     {{ $year }}
                                 </li>
                             @endforeach
@@ -121,21 +121,21 @@
                 </div>
                 <div class="col-span-12 sm:col-span-6">
                     <label class="form-label">Field of studies</label>
-                    <div class="filtration_criterion col-span-12 sm:col-span-9 relative cursor-pointer">
+                    <div class="filtration_criterion relative col-span-12 cursor-pointer sm:col-span-9">
                         <div
-                            class="select relative rounded-md bg-white py-2 pl-6 pr-12 border-2 border-gray-200 after:content-[''] after:block after:absolute after:inset-y-[35%] after:right-4 after:w-[10px] after:h-[10px] after:border-b-4 after:border-b-gray-500 after:border-r-4 after:border-r-gray-500 after:rotate-45 after:transition duration-300">
+                            class="select relative rounded-md border-2 border-gray-200 bg-white py-2 pl-6 pr-12 duration-300 after:absolute after:inset-y-[35%] after:right-4 after:block after:h-[10px] after:w-[10px] after:rotate-45 after:border-b-4 after:border-r-4 after:border-b-gray-500 after:border-r-gray-500 after:transition after:content-['']">
                             Field of studies</div>
-                        <ul class="dropdown-list w-full top-[150%] left-0 overflow-hidden shadow-lg rounded">
-                            <li class="transition duration-[0.3s] py-2 px-6 text-white bg-blue-500">
+                        <ul class="dropdown-list top-[150%] left-0 w-full overflow-hidden rounded shadow-lg">
+                            <li class="bg-blue-500 py-2 px-6 text-white transition duration-[0.3s]">
                                 Field of studies</li>
                             @foreach (\App\Enumerations\FieldOfStudy::cases() as $field)
-                                <li class="transition duration-[0.3s] py-2 px-6 hover:text-white hover:bg-blue-500">
+                                <li class="py-2 px-6 transition duration-[0.3s] hover:bg-blue-500 hover:text-white">
                                     {{ $field->value }}
                                 </li>
                             @endforeach
                         </ul>
                         <select class="hidden" name="field-of-study" required>
-                            <option value="Field of studies" class="text-white bg-gray-300">
+                            <option value="Field of studies" class="bg-gray-300 text-white">
                                 Field of studies</option>
                             @foreach (\App\Enumerations\FieldOfStudy::cases() as $field)
                                 <option value="{{ $field->value }}">
@@ -157,9 +157,9 @@
                     <input type="text" id="country" name="country" value="{{ old('country') }}"
                         class="form-input pr-10" required />
                     <i
-                        class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
+                        class="fa-solid fa-exclamation-circle failure-icon absolute right-0 py-3 px-4 text-sm text-red-500 opacity-0"></i>
                     <i
-                        class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
+                        class="far fa-check-circle success-icon absolute right-0 py-3 px-4 text-sm text-green-500 opacity-0"></i>
                     <div class="validation-error">
                         <div class="validation-error">
                             @error('country')
@@ -173,9 +173,9 @@
                     <input type="text" id="city" name="city" value="{{ old('city') }}"
                         class="form-input pr-10" required />
                     <i
-                        class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
+                        class="fa-solid fa-exclamation-circle failure-icon absolute right-0 py-3 px-4 text-sm text-red-500 opacity-0"></i>
                     <i
-                        class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
+                        class="far fa-check-circle success-icon absolute right-0 py-3 px-4 text-sm text-green-500 opacity-0"></i>
                     <div class="validation-error">
                         @error('city')
                             {{ $message }}
@@ -187,9 +187,9 @@
                 <label for="phone" class="form-label">Phone number</label>
                 <input type="tel" name="phone" value="{{ old('phone') }}" class="form-input pr-10" required />
                 <i
-                    class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
+                    class="fa-solid fa-exclamation-circle failure-icon absolute right-0 py-3 px-4 text-sm text-red-500 opacity-0"></i>
                 <i
-                    class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute right-0 opacity-0"></i>
+                    class="far fa-check-circle success-icon absolute right-0 py-3 px-4 text-sm text-green-500 opacity-0"></i>
                 <div class="validation-error">
                     @error('phone')
                         {{ $message }}

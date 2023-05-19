@@ -1,6 +1,6 @@
-<div class="fixed left-0 top-0 w-full h-full z-[10000] backdrop-blur bg-[rgba(0,0,0,0.9)]" id="loader">
-    <div class="w-[20%] h-fit absolute inset-0 m-auto text-center">
-        <div class="border-[5px] border-gray-500 rounded-[50%] border-t-transparent h-16 w-16 my-0 mx-auto animate-spin">
+<div class="fixed left-0 top-0 z-[10000] h-full w-full bg-[rgba(0,0,0,0.9)] backdrop-blur" id="loader">
+    <div class="absolute inset-0 m-auto h-fit w-[20%] text-center">
+        <div class="my-0 mx-auto h-16 w-16 animate-spin rounded-[50%] border-[5px] border-gray-500 border-t-transparent">
         </div>
     </div>
 </div>
