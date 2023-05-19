@@ -4,7 +4,7 @@
 
 @section('content')
     <form action="{{ route('password.email') }}" method="post"
-        class="lg:w-[30vw] py-10 px-11 bg-white border-[1px] border-gray-200 shadow-[0_0_1rem_rgb(0,0,0,10%)] rounded-lg space-y-4">
+        class="space-y-4 rounded-lg border-[1px] border-gray-200 bg-white py-10 px-11 shadow-[0_0_1rem_rgb(0,0,0,10%)] lg:w-[30vw]">
         <h1 class="text-center">Reset password</h1>
         @if (session('status'))
             <div class="box success">{{ session('status') }}</div>
@@ -19,8 +19,8 @@
             <input type="email" id="email" name="email" placeholder="E-mail address" class="form-input pr-10"
                 required />
             <i
-                class="fa-solid fa-exclamation-circle failure-icon py-3 px-4 text-red-500 text-sm absolute right-0 opacity-0"></i>
-            <i class="far fa-check-circle success-icon py-3 px-4 text-green-500 text-sm absolute right-0 opacity-0"></i>
+                class="fa-solid fa-exclamation-circle failure-icon absolute right-0 py-3 px-4 text-sm text-red-500 opacity-0"></i>
+            <i class="far fa-check-circle success-icon absolute right-0 py-3 px-4 text-sm text-green-500 opacity-0"></i>
             <div class="validation-error">
                 @error('email')
                     {{ $message }}

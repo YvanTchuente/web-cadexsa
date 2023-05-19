@@ -5,7 +5,7 @@
 @section('content')
     @include('partials.page-content-title', ['header' => 'About Us'])
     <main class="container my-12 grid grid-cols-12 gap-y-5 lg:gap-x-12">
-        <article class="col-span-12 lg:col-span-8 space-y-6 text-justify">
+        <article class="col-span-12 space-y-6 text-justify lg:col-span-8">
             <div id="introduction">
                 <p>The Cadenelle Ex-student Association (CADEXSA) is an initiative of the ex-students of the 2019 batch of
                     the <span class='font-[inter-semiBold]'>La Cadenelle Anglo Saxon
@@ -16,17 +16,17 @@
                     Douala.</p>
             </div>
             <div id="mission">
-                <h2 class="text-center lg:text-left mb-4">Our Mission</h2>
+                <h2 class="mb-4 text-center lg:text-left">Our Mission</h2>
                 <p>Several times in a school year, we organise and pay visits to our alma-mater during which we share our
                     experience with the current students and advice them on how to succeed their academic year.</p>
             </div>
             <div id="vision">
-                <h2 class="text-center lg:text-left mb-4">Our Vision</h2>
+                <h2 class="mb-4 text-center lg:text-left">Our Vision</h2>
                 <p>CADEXSA aims primarily to bring together and unite all the graduates of our alma-mater so to initiate and
                     preserve friendship and unity for as long as possible. Alongside this main vision, the association has
                     someother objectives it plans to achieve in the long and short run.
                 </p>
-                <ul class="my-4 pl-4 space-y-2">
+                <ul class="my-4 space-y-2 pl-4">
                     <li class="list-disc">Achieve the status of recognized profit-making organization</li>
                     <li class="list-disc">In the short-run, CADEXSA aims at carrying out non-lucrative activities.</li>
                     <li class="list-disc">Promote the welfare of the students and the school.</li>
@@ -40,7 +40,7 @@
                 </ul>
             </div>
             <div id="occupations">
-                <h2 class="text-center lg:text-left mb-4">Our Occupations</h2>
+                <h2 class="mb-4 text-center lg:text-left">Our Occupations</h2>
                 <ul class="space-y-3">
                     <li id="first-occupation">
                         <h3>Promote Excellence</h3>
@@ -70,7 +70,7 @@
             </div>
         </article>
         <aside class="col-span-12 lg:col-span-4">
-            <section class="py-6 px-8 rounded-lg border-2 border-gray-300">
+            <section class="rounded-lg border-2 border-gray-300 py-6 px-8">
                 <h3 class="mb-4 text-center lg:text-left">On this page</h3>
                 <ul class="space-y-2">
                     <li><a href="#introduction">Introduction</a></li>
@@ -91,75 +91,75 @@
     </main>
     <section class="bg-blue-100" id="administration">
         <div class="container py-14">
-            <h1 class="mb-10 text-3xl sm:text-4xl text-center">Our Administration</h1>
-            <div class="grid grid-cols-12 sm:gap-x-8 gap-y-8">
+            <h1 class="mb-10 text-center text-3xl sm:text-4xl">Our Administration</h1>
+            <div class="grid grid-cols-12 gap-y-8 sm:gap-x-8">
                 <article
-                    class="col-span-12 md:col-span-4 lg:col-span-3 bg-white p-8 space-y-4 rounded-lg shadow-[0_0_1rem_rgba(0,0,0,0.1)]">
+                    class="col-span-12 space-y-4 rounded-lg bg-white p-8 shadow-[0_0_1rem_rgba(0,0,0,0.1)] md:col-span-4 lg:col-span-3">
                     <img src="/images/admins/president.jpg" alt="president"
-                        class="w-[180px] h-[180px] m-auto rounded-full border-[1rem] border-blue-100 object-top">
+                        class="m-auto h-[180px] w-[180px] rounded-full border-[1rem] border-blue-100 object-top">
                     <div class="space-y-1">
                         <h2 class="leading-tight text-blue-500">Basso Landry Boniface</h2>
                         <div class="font-[inter-semiBold]">President</div>
                     </div>
                 </article>
                 <article
-                    class="col-span-12 md:col-span-4 lg:col-span-3 bg-white p-8 space-y-4 rounded-lg shadow-[0_0_1rem_rgba(0,0,0,0.1)]">
+                    class="col-span-12 space-y-4 rounded-lg bg-white p-8 shadow-[0_0_1rem_rgba(0,0,0,0.1)] md:col-span-4 lg:col-span-3">
                     <img src="/images/admins/vice-president.jpg" alt="vice-president"
-                        class="w-[180px] h-[180px] m-auto rounded-full border-[1rem] border-blue-100 object-top">
+                        class="m-auto h-[180px] w-[180px] rounded-full border-[1rem] border-blue-100 object-top">
                     <div class="space-y-1">
                         <h2 class="leading-tight text-blue-500">Mbake Collins Nyama</h2>
                         <div class="font-[inter-semiBold]">Vice-President</div>
                     </div>
                 </article>
                 <article
-                    class="col-span-12 md:col-span-4 lg:col-span-3 bg-white p-8 space-y-4 rounded-lg shadow-[0_0_1rem_rgba(0,0,0,0.1)]">
+                    class="col-span-12 space-y-4 rounded-lg bg-white p-8 shadow-[0_0_1rem_rgba(0,0,0,0.1)] md:col-span-4 lg:col-span-3">
                     <img src="/images/admins/secretary.jpg" alt="secretary"
-                        class="w-[180px] h-[180px] m-auto rounded-full border-[1rem] border-blue-100 object-top">
+                        class="m-auto h-[180px] w-[180px] rounded-full border-[1rem] border-blue-100 object-top">
                     <div class="space-y-1">
                         <h2 class="leading-tight text-blue-500">Sumbele Djamouo Christian Brian</h2>
                         <div class="font-[inter-semiBold]">General Secretary</div>
                     </div>
                 </article>
                 <article
-                    class="col-span-12 md:col-span-4 lg:col-span-3 bg-white p-8 space-y-4 rounded-lg shadow-[0_0_1rem_rgba(0,0,0,0.1)]">
+                    class="col-span-12 space-y-4 rounded-lg bg-white p-8 shadow-[0_0_1rem_rgba(0,0,0,0.1)] md:col-span-4 lg:col-span-3">
                     <img src="/images/admins/vice-secretary.jpg" alt="assistant secretary"
-                        class="w-[180px] h-[180px] m-auto rounded-full border-[1rem] border-blue-100 object-cover mx-auto mb-3">
+                        class="m-auto mx-auto mb-3 h-[180px] w-[180px] rounded-full border-[1rem] border-blue-100 object-cover">
                     <div class="space-y-1">
                         <h2 class="leading-tight text-blue-500">Mbuih Larissa</h2>
                         <div class="font-[inter-semiBold]">Assistant Secretary</div>
                     </div>
                 </article>
                 <article
-                    class="col-span-12 md:col-span-4 lg:col-span-3 bg-white p-8 space-y-4 rounded-lg shadow-[0_0_1rem_rgba(0,0,0,0.1)]">
+                    class="col-span-12 space-y-4 rounded-lg bg-white p-8 shadow-[0_0_1rem_rgba(0,0,0,0.1)] md:col-span-4 lg:col-span-3">
                     <img src="/images/admins/financial-secretary.jpg" alt="financial secretary"
-                        class="w-[180px] h-[180px] m-auto rounded-full border-[1rem] border-blue-100 mx-auto mb-3">
+                        class="m-auto mx-auto mb-3 h-[180px] w-[180px] rounded-full border-[1rem] border-blue-100">
                     <div class="space-y-1">
                         <h2 class="leading-tight text-blue-500">Nguejio Mbock Maelle</h2>
                         <div>Financial Secretary</div>
                     </div>
                 </article>
                 <article
-                    class="col-span-12 md:col-span-4 lg:col-span-3 bg-white p-8 space-y-4 rounded-lg shadow-[0_0_1rem_rgba(0,0,0,0.1)]">
+                    class="col-span-12 space-y-4 rounded-lg bg-white p-8 shadow-[0_0_1rem_rgba(0,0,0,0.1)] md:col-span-4 lg:col-span-3">
                     <img src="/images/admins/treasurer.jpg" alt="man-treasurer"
-                        class="w-[180px] h-[180px] m-auto rounded-full border-[1rem] border-blue-100 object-top">
+                        class="m-auto h-[180px] w-[180px] rounded-full border-[1rem] border-blue-100 object-top">
                     <div class="space-y-1">
                         <h2 class="leading-tight text-blue-500">Kemne Kuate Axis</h2>
                         <div class="font-[inter-semiBold]">Chief Treasurer</div>
                     </div>
                 </article>
                 <article
-                    class="col-span-12 md:col-span-4 lg:col-span-3 bg-white p-8 space-y-4 rounded-lg shadow-[0_0_1rem_rgba(0,0,0,0.1)]">
+                    class="col-span-12 space-y-4 rounded-lg bg-white p-8 shadow-[0_0_1rem_rgba(0,0,0,0.1)] md:col-span-4 lg:col-span-3">
                     <img src="/images/admins/assistant-treasurer.jpg" alt="second-treasurer"
-                        class="w-[180px] h-[180px] m-auto rounded-full border-[1rem] border-blue-100 object-cover mx-auto mb-3">
+                        class="m-auto mx-auto mb-3 h-[180px] w-[180px] rounded-full border-[1rem] border-blue-100 object-cover">
                     <div class="space-y-1">
                         <h2 class="leading-tight text-blue-500">Detsop Laeticia</h2>
                         <div class="font-[inter-semiBold]">Assistant Treasurer</div>
                     </div>
                 </article>
                 <article
-                    class="col-span-12 md:col-span-4 lg:col-span-3 bg-white p-8 space-y-4 rounded-lg shadow-[0_0_1rem_rgba(0,0,0,0.1)]">
+                    class="col-span-12 space-y-4 rounded-lg bg-white p-8 shadow-[0_0_1rem_rgba(0,0,0,0.1)] md:col-span-4 lg:col-span-3">
                     <img src="/images/admins/public-relation-officer.jpg" alt="public-relation-officer"
-                        class="w-[180px] h-[180px] m-auto rounded-full border-[1rem] border-blue-100 object-top">
+                        class="m-auto h-[180px] w-[180px] rounded-full border-[1rem] border-blue-100 object-top">
                     <div class="space-y-1">
                         <h2 class="leading-tight text-blue-500">Monjo Eden</h2>
                         <div class="font-[inter-semiBold]">Public Relations Officer</div>

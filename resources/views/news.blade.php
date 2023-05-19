@@ -4,7 +4,7 @@
 
 @section('content')
     @include('partials.page-content-title', ['header' => 'News'])
-    <div class="container py-12 space-y-6">
+    <div class="container space-y-6 py-12">
         @if ($news->count() !== 0)
             @include('partials.filter', ['criteria' => $filtration_criteria])
             <div class="grid grid-cols-3 gap-6">
@@ -16,7 +16,7 @@
             </div>
             {{ $news->links() }}
         @else
-            <div class="py-24 flex flex-col justify-center items-center gap-y-4">
+            <div class="flex flex-col items-center justify-center gap-y-4 py-24">
                 <img src="/images/graphics/news.png" class="h-20">
                 <h2>There are no news articles</h2>
             </div>

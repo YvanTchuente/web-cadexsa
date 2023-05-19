@@ -1,9 +1,9 @@
 <footer class="bg-gray-100 py-20">
     <div class="container relative">
-        <div class="grid grid-cols-12 gap-x-4 gap-y-8 pb-20 border-b-[1px] border-b-gray-300 relative">
+        <div class="relative grid grid-cols-12 gap-x-4 gap-y-8 border-b-[1px] border-b-gray-300 pb-20">
             <div class="col-span-12 lg:col-span-6">
                 <h3 class="mb-6">CADEXSA</h3>
-                <p class="text-justify lg:w-3/4 mb-4">The Cadenelle Ex-student Association is an initiative of the
+                <p class="mb-4 text-justify lg:w-3/4">The Cadenelle Ex-student Association is an initiative of the
                     ex-students of the 2019
                     batch of the <span class='font-[inter-semiBold]'>La Cadenelle Anglo Saxon
                         College</span> situated at pk 10, Douala Bassa after the Ndokoti Junction</p>
@@ -49,7 +49,7 @@
             reserved
         </div>
         <div id="scrollToTopButton"
-            class="w-12 h-12 flex text-gray-100 cursor-pointer text-[2em] rounded-3xl justify-center items-center bg-blue-500 absolute bottom-[6rem] xs:bottom-[5rem] md:bottom-12 lg:-bottom-6 right-4 sm:right-0">
+            class="absolute bottom-[6rem] right-4 flex h-12 w-12 cursor-pointer items-center justify-center rounded-3xl bg-blue-500 text-[2em] text-gray-100 xs:bottom-[5rem] sm:right-0 md:bottom-12 lg:-bottom-6">
             <i class="fa-solid fa-angle-up"></i>
         </div>
     </div>

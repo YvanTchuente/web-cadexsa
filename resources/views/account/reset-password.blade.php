@@ -4,7 +4,7 @@
 
 @section('content')
     <form action="{{ route('password.update') }}" method="post"
-        class="lg:w-[30vw] bg-white py-10 px-11 border-[1px] border-gray-200 rounded-lg shadow-[0_0_1rem_rgb(0,0,0,10%)] space-y-4">
+        class="space-y-4 rounded-lg border-[1px] border-gray-200 bg-white py-10 px-11 shadow-[0_0_1rem_rgb(0,0,0,10%)] lg:w-[30vw]">
         <h1 class="text-center">Create new password</h1>
         @if (session('status'))
             <div class="box success">{{ session('status') }}</div>
@@ -17,9 +17,9 @@
             <input type="password" id="password" name="password" value="{{ old('password') }}" class="form-input pr-10"
                 required />
             <i
-                class="fa-solid fa-eye password-read-toggle text-gray-500 py-3 px-4 text-sm absolute right-0 cursor-pointer"></i>
-            <i class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute opacity-0"></i>
-            <i class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute opacity-0"></i>
+                class="fa-solid fa-eye password-read-toggle absolute right-0 cursor-pointer py-3 px-4 text-sm text-gray-500"></i>
+            <i class="fa-solid fa-exclamation-circle failure-icon absolute py-3 px-4 text-sm text-red-500 opacity-0"></i>
+            <i class="far fa-check-circle success-icon absolute py-3 px-4 text-sm text-green-500 opacity-0"></i>
             <div class="validation-error">
                 @error('password')
                     {{ $message }}
@@ -31,9 +31,9 @@
             <input type="password" id="password_confirmation" name="password_confirmation"
                 value="{{ old('password_confirmation') }}" class="form-input pr-10" required />
             <i
-                class="fa-solid fa-eye password-read-toggle text-gray-500 py-3 px-4 text-sm absolute right-0 cursor-pointer"></i>
-            <i class="fa-solid fa-exclamation-circle failure-icon text-red-500 py-3 px-4 text-sm absolute opacity-0"></i>
-            <i class="far fa-check-circle success-icon text-green-500 py-3 px-4 text-sm absolute opacity-0"></i>
+                class="fa-solid fa-eye password-read-toggle absolute right-0 cursor-pointer py-3 px-4 text-sm text-gray-500"></i>
+            <i class="fa-solid fa-exclamation-circle failure-icon absolute py-3 px-4 text-sm text-red-500 opacity-0"></i>
+            <i class="far fa-check-circle success-icon absolute py-3 px-4 text-sm text-green-500 opacity-0"></i>
             <div class="validation-error">
                 @error('password_confirmation')
                     {{ $message }}

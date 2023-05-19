@@ -4,9 +4,9 @@
 
 @section('content')
     <div class="container my-12 space-y-8">
-        <div class="h-[400px] flex justify-center"><img src="{{ $photo->url() }}" class="h-full w-fit"></div>
+        <div class="flex h-[400px] justify-center"><img src="{{ $photo->url() }}" class="h-full w-fit"></div>
         <div class="space-y-5">
-            <div class="text-gray-500 flex gap-x-8">
+            <div class="flex gap-x-8 text-gray-500">
                 <div class="space-y-1">
                     <div class="flex items-center gap-x-2">
                         <i class="fa-solid fa-calendar-day"></i>
@@ -17,7 +17,7 @@
                         <span>Shot on {{ $photo->shot_on->format('F j, Y') }}</span>
                     </div>
                 </div>
-                <div class="h-fit flex items-center gap-x-2">
+                <div class="flex h-fit items-center gap-x-2">
                     <i class="fa-solid fa-user"></i>
                     <span>
                         By

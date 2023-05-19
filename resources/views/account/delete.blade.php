@@ -4,9 +4,9 @@
 
 @section('content')
     <div
-        class="sm:w-[400px] p-8 bg-white border-[1px] border-gray-200 space-y-86 rounded-lg shadow-[0_0_1rem_rgb(0,0,0,10%)]">
+        class="space-y-86 rounded-lg border-[1px] border-gray-200 bg-white p-8 shadow-[0_0_1rem_rgb(0,0,0,10%)] sm:w-[400px]">
         <h1 class="text-4xl">We're sorry to see you go</h1>
-        <div class="space-y-2 mt-4 mb-8">
+        <div class="mt-4 mb-8 space-y-2">
             <p>If you just want to change your username, you can <a href="{{ route('settings.profile') }}"
                     class="text-blue-500">do that here</a>.
             </p>

@@ -35,7 +35,7 @@
     @include('partials.header')
 
     <!-- Start website content -->
-    <div class="container my-16 flex justify-center items-center">
+    <div class="container my-16 flex items-center justify-center">
         @yield('content')
     </div>
     <!-- End website content -->

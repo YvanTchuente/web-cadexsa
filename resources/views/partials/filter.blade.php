@@ -1,20 +1,20 @@
 <div class="relative text-center">
     <form action="{{ url()->current() }}"
-        class="filter flex flex-col sm:flex-row justify-center gap-y-2 sm:gap-y-0 sm:gap-x-3">
+        class="flex flex-col justify-center gap-y-2 filter sm:flex-row sm:gap-y-0 sm:gap-x-3">
         @foreach ($criteria as $criterion)
-            <div class="filtration_criterion relative cursor-pointer w-full sm:w-[10rem]">
+            <div class="filtration_criterion relative w-full cursor-pointer sm:w-[10rem]">
                 <div
-                    class="select relative w-full text-blue-700 bg-white uppercase py-2 pl-6 pr-12 border-2 border-blue-500 rounded-md after:content-[''] after:block after:absolute after:inset-y-[35%] after:right-4 after:w-[10px] after:h-[10px] after:border-b-4 after:border-b-blue-700 after:border-r-4 after:border-r-blue-700 after:rotate-45 after:transition duration-300">
+                    class="select relative w-full rounded-md border-2 border-blue-500 bg-white py-2 pl-6 pr-12 uppercase text-blue-700 duration-300 after:absolute after:inset-y-[35%] after:right-4 after:block after:h-[10px] after:w-[10px] after:rotate-45 after:border-b-4 after:border-r-4 after:border-b-blue-700 after:border-r-blue-700 after:transition after:content-['']">
                     {{ $criterion['name'] }}
                 </div>
                 <ul
-                    class="dropdown-list w-full top-[150%] left-0 shadow-[0_0_0.5rem_rgba(0,0,0,0.2)] rounded-md overflow-hidden transition">
+                    class="dropdown-list top-[150%] left-0 w-full overflow-hidden rounded-md shadow-[0_0_0.5rem_rgba(0,0,0,0.2)] transition">
                     <li
-                        class="py-2 px-6 capitalize hover:text-white hover:bg-blue-500 text-white bg-blue-500 transition">
+                        class="bg-blue-500 py-2 px-6 capitalize text-white transition hover:bg-blue-500 hover:text-white">
                         {{ $criterion['name'] }}
                     </li>
                     @foreach ($criterion['options'] as $option)
-                        <li class="py-2 px-6 capitalize hover:text-white hover:bg-blue-500 transition">
+                        <li class="py-2 px-6 capitalize transition hover:bg-blue-500 hover:text-white">
                             {{ $option }}
                         </li>
                     @endforeach

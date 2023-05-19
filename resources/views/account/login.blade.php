@@ -4,8 +4,8 @@
 
 @section('content')
     <form action="{{ route('login') }}" method="post"
-        class="w-fit lg:w-[450px] h-fit bg-white py-10 px-11 border-[1px] border-gray-200 rounded-lg space-y-10 shadow-[0_0_1rem_rgb(0,0,0,10%)]">
-        <h1 class="text-3xl text-center">Login</h1>
+        class="h-fit w-fit space-y-10 rounded-lg border-[1px] border-gray-200 bg-white py-10 px-11 shadow-[0_0_1rem_rgb(0,0,0,10%)] lg:w-[450px]">
+        <h1 class="text-center text-3xl">Login</h1>
         <div class="space-y-4">
             @if (session('error'))
                 <div class="box error">{{ session('error') }}</div>
@@ -14,16 +14,16 @@
             @endif
             <div class="space-y-3">
                 <div class="relative">
-                    <i class="fa-solid fa-user absolute py-3 px-4 text-gray-500 text-sm"></i>
+                    <i class="fa-solid fa-user absolute py-3 px-4 text-sm text-gray-500"></i>
                     <input type="text" id="login" name="login" class="form-input pl-10"
                         placeholder="Email or Username" value="{{ old('login') }}" required />
                 </div>
                 <div class="relative">
-                    <i class="fa-solid fa-lock absolute py-3 px-4 text-gray-500 text-sm"></i>
+                    <i class="fa-solid fa-lock absolute py-3 px-4 text-sm text-gray-500"></i>
                     <input type="password" id="password" name="password" class="form-input px-10" placeholder="Password"
                         required />
                     <i
-                        class="fa-solid fa-eye password-read-toggle text-gray-500 py-3 px-4 text-sm absolute right-0 cursor-pointer"></i>
+                        class="fa-solid fa-eye password-read-toggle absolute right-0 cursor-pointer py-3 px-4 text-sm text-gray-500"></i>
                 </div>
                 <p class="text-right">
                     <a href="{{ route('password.request') }}" class="text-blue-500">Forgot Password ?</a>
