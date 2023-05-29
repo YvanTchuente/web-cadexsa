@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\File;
 
 class PhotoController extends Controller
 {
@@ -60,5 +61,39 @@ class PhotoController extends Controller
     public function show(Photo $photo)
     {
         return view('photo', ['photo' => $photo]);
+    }
+
+    /**
+     * Show the photo upload form.
+     */
+    public function create()
+    {
+        return view('photo-upload');
+    }
+
+    /**
+     * Store a newly upload photo in storage.
+     */
+    public function store(Request $request)
+    {
+        $input = $request->validate([
+            'photo' => ['required', File::types(['jpeg', 'jpg'])],
+            'creation-date' => 'required|date',
+            'description' => 'required|string'
+        ]);
+
+        $photo = $input['photo'];
+        $path = $photo->store('public/photos');
+
+        $photo = new Photo([
+            'path' => $path,
+            'description' => $input['description'],
+            'shot_on' => $input['creation-date'],
+            'author_id' => auth()->user()->id
+        ]);
+
+        $photo->saveOrFail();
+
+        return redirect()->route('photo', ['photo' => $photo->id]);
     }
 }

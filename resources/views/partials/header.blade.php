@@ -22,6 +22,7 @@
             </div>
             @auth
                 <div>
+                    <a href="{{ route('photo.upload') }}" class="button mr-2">Upload</a>
                     <img src="{{ auth()->user()->avatar }}" class="mr-1 inline-block h-10 w-10 rounded-full object-cover" />
                     <i class="fa-solid fa-angle-down cursor-pointer" id="sign-in-tools-opener"></i>
                     <div class="dropdown-list top-[85%] right-[5%] w-fit rounded-2xl border-[1px] border-solid border-gray-200 p-4 text-black shadow-[0_0_0.5rem_rgba(0,0,0,0.1)]"
