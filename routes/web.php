@@ -40,7 +40,11 @@ Route::controller(EventController::class)->group(function () {
 
 Route::controller(PhotoController::class)->group(function () {
     Route::get('/photos', 'index')->name('photos');
-    Route::get('/photos/{photo}', 'show')->name('photo');
+    Route::get('/photos/{photo}', 'show')->where('photo', '\d+')->name('photo');
+    Route::middleware('auth')->group(function () {
+        Route::get('/photos/upload', 'create')->name('photo.upload');
+        Route::post('/photos/upload', 'store');
+    });
 });
 
 Route::controller(InquiryController::class)->group(function () {
