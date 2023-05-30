@@ -96,4 +96,21 @@ class PhotoController extends Controller
 
         return redirect()->route('photo', ['photo' => $photo->id]);
     }
+
+    /**
+     * Update the specified photo in storage.
+     */
+    public function update(Request $request, Photo $photo)
+    {
+        $input = $request->validate([
+            'creation-date' => 'sometimes|required|date',
+            'description' => 'sometimes|required|string'
+        ]);
+
+        $photo->shot_at = $input['creation-date'];
+        $photo->description = $input['description'];
+        $photo->saveOrFail();
+
+        return view('photo', ['photo' => $photo]);
+    }
 }
