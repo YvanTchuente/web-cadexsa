@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('update-photo', function (User $user, Photo $photo) {
+        Gate::define('manage-photo', function (User $user, Photo $photo) {
             return $user->id === $photo->author_id;
         });
 
