@@ -42,9 +42,10 @@ Route::controller(PhotoController::class)->group(function () {
     Route::get('/photos', 'index')->name('photos');
     Route::get('/photos/{photo}', 'show')->where('photo', '\d+')->name('photo');
     Route::middleware('auth')->group(function () {
-        Route::post('/photos/{photo}', 'update')->where('photo', '\d+')->can('update-photo', 'photo');
+        Route::post('/photos/{photo}', 'update')->where('photo', '\d+')->can('manage-photo', 'photo');
         Route::get('/photos/upload', 'create')->name('photo.upload');
         Route::post('/photos/upload', 'store');
+        Route::post('/photos/delete', 'delete')->name('photo.delete');
     });
 });
 

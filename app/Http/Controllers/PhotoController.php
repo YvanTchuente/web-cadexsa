@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
@@ -112,5 +114,21 @@ class PhotoController extends Controller
         $photo->saveOrFail();
 
         return view('photo', ['photo' => $photo]);
+    }
+
+    /**
+     * Delete the specified photo in storage.
+     */
+    public function delete(Request $request)
+    {
+        $input = $request->validate(['id' => 'required|integer']);
+
+        $photo = Photo::findOrFail($input['id']);
+        Gate::authorize('manage-photo', $photo);
+
+        Storage::delete($photo->path);
+        $photo->delete();
+
+        return redirect()->route('photos');
     }
 }

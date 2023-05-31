@@ -28,14 +28,15 @@
                 </div>
             </div>
             <p>{{ $photo->description }}</p>
-            @can('update-photo', $photo)
+            @can('manage-photo', $photo)
                 <div class="flex items-center justify-center gap-x-2">
                     <button class="button" id="edit-button">Edit</button>
+                    <button id="delete-button" class="button" data-primary-key="{{ $photo->id }}">Delete</button>
                 </div>
             @endcan
         </div>
     </div>
-    @can('update-photo', $photo)
+    @can('manage-photo', $photo)
         <div class="fixed left-0 top-0 z-[1001] h-full w-full bg-[rgba(0,0,0,0.5)]" style="display: none">
             <div class="flex h-full w-full items-center justify-center">
                 <form action="{{ url()->current() }}" method="post" id="photo-update-form"
@@ -54,7 +55,22 @@
                     </div>
                     @csrf
                     <input type="submit" class="button mr-2" value="Update">
-                    <button type="reset" class="button" id="cancel">Cancel</button>
+                    <button type="reset" class="button" id="cancel-update">Cancel</button>
+                </form>
+            </div>
+        </div>
+        <div class="fixed left-0 top-0 z-[1001] h-full w-full bg-[rgba(0,0,0,0.5)]" style="display: none">
+            <div class="flex h-full w-full items-center justify-center">
+                <form action="{{ route('photo.delete') }}" method="post" id="confirm-photo-deletion-form"
+                    class="rounded-lg bg-white py-6 px-8 text-center sm:w-[500px]">
+                    <h1>Confirm deletion</h1>
+                    <p class="mt-5 mb-6">Are you sure you want to delete this photo?</p>
+                    <input type="hidden" name="id" value="{{ $photo->id }}">
+                    @csrf
+                    <div class="space-x-2">
+                        <input type="submit" class="button bg-red-500 hover:bg-red-600" value="Delete">
+                        <input type="button" id="cancel-deletion" class="button" value="Cancel" />
+                    </div>
                 </form>
             </div>
         </div>
@@ -70,8 +86,16 @@
             $("#photo-update-form").parent().parent().show();
         });
 
-        $("#cancel").click(function() {
+        $("#cancel-update").click(function() {
             $("#photo-update-form").parent().parent().hide();
+        });
+
+        $("#delete-button").click(function() {
+            $("#confirm-photo-deletion-form").parent().parent().show();
+        });
+
+        $("#cancel-deletion").click(function() {
+            $("#confirm-photo-deletion-form").parent().parent().hide();
         });
     </script>
 @endsection
