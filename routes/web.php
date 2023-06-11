@@ -30,7 +30,11 @@ Route::get('/about', AboutController::class)->name('about');
 
 Route::controller(NewsController::class)->group(function () {
     Route::get('/news', 'index')->name('news');
-    Route::get('/news/{newsArticle}', 'show')->name('news_article');
+    Route::get('/news/{newsArticle}', 'show')->where('newsArticle', '\d+')->name('news_article');
+    Route::middleware('auth')->group(function () {
+        Route::get('/news/create', 'create')->name('news.create');
+        Route::post('/news/create', 'store');
+    });
 });
 
 Route::controller(EventController::class)->group(function () {

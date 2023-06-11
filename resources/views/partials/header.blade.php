@@ -61,6 +61,14 @@
                             </li>
                             <li
                                 class="before:my-2 before:block before:w-full before:border-t-[1px] before:border-gray-300 before:content-['']">
+                                <a href="{{ route('news.create') }}"
+                                    class="flex w-full items-center gap-x-3 rounded-lg py-2 px-2 hover:bg-blue-100 hover:text-blue-600">
+                                    <i class="fa-solid fa-user-cog"></i>
+                                    <span>Create news article</span>
+                                </a>
+                            </li>
+                            <li
+                                class="before:my-2 before:block before:w-full before:border-t-[1px] before:border-gray-300 before:content-['']">
                                 <a href="{{ route('settings.profile') }}"
                                     class="flex w-full items-center gap-x-3 rounded-lg py-2 px-2 hover:bg-blue-100 hover:text-blue-600">
                                     <i class="fa-solid fa-user-cog"></i>
