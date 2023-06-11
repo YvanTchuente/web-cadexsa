@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\Handler;
 use App\Models\NewsArticle;
 use Illuminate\Http\Request;
 use App\Enumerations\NewsCategory;
+use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -76,5 +79,46 @@ class NewsController extends Controller
         return view('news-article', [
             'newsArticle' => $newsArticle, 'recentNews' => $recentNews, 'categories' => $categories
         ]);
+    }
+
+    /**
+     * Show the form for creating a new news article.
+     */
+    public function create()
+    {
+        return view('create-news-article');
+    }
+
+    /**
+     * Store a newly created news article in storage.
+     */
+    public function store(Request $request)
+    {
+        $input = $request->validate([
+            'title' => 'required|string',
+            'category' => 'required|string',
+            'body' => 'required|string',
+            'image' => ['required', File::types(['jpeg', 'jpg'])],
+        ]);
+
+        $featuring_image = $input['image'];
+        $path_to_image = $featuring_image->store('public/news_articles_images');
+
+        $newsArticle = new NewsArticle([
+            'title' => $input['title'],
+            'body' => $input['body'],
+            'category' => $input['category'],
+            'image' => $path_to_image,
+            'author_id' => auth()->user()->getAuthIdentifier()
+        ]);
+
+        try {
+            $newsArticle->saveOrFail();
+            return redirect()->route('news_article', ['newsArticle' => $newsArticle->id]);
+        } catch (\Throwable $th) {
+            app()->get(Handler::class)->report($th);
+            Storage::delete($path_to_image);
+            return redirect()->route('news.create')->with('error', "Internal error occured, please try again.");
+        }
     }
 }
