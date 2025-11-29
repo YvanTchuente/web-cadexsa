@@ -12,4 +12,11 @@ class ApplicationTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_about_us_page_can_rendered(): void
+    {
+        $response = $this->get(route('about'));
+
+        $response->assertStatus(200);
+    }
 }
