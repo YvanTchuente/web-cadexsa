@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  tests:
+    name: Run Unit and Feature tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv
+    - uses: actions/checkout@v4
+
+    - name: Cache Composer dependencies
+      uses: actions/cache@v4
+      with:
+        path: vendor
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+      
+    - name: Install Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Prepare Laravel Environment
+      run: |
+        cp .env.example .env
+        php artisan key:generate
+        
+    - name: Create Database
+      run: |
+        mkdir -p database
+        touch database/testing.sqlite
+      
+    - name: Directory Permissions
+      run: chmod -R 777 storage bootstrap/cache
+        
+    - name: Execute tests
+      env:
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/testing.sqlite
+      run: |
+        php artisan test
