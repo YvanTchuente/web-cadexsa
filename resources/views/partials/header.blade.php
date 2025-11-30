@@ -22,7 +22,6 @@
             </div>
             @auth
                 <div>
-                    <a href="{{ route('photo.upload') }}" class="button mr-2">Upload</a>
                     <img src="{{ auth()->user()->avatar }}" class="mr-1 inline-block h-10 w-10 rounded-full object-cover" />
                     <i class="fa-solid fa-angle-down cursor-pointer" id="sign-in-tools-opener"></i>
                     <div class="dropdown-list top-[85%] right-[5%] w-fit rounded-2xl border-[1px] border-solid border-gray-200 p-4 text-black shadow-[0_0_0.5rem_rgba(0,0,0,0.1)]"
@@ -50,13 +49,6 @@
                                     class="flex w-full items-center gap-x-3 rounded-lg py-2 px-2 hover:bg-blue-100 hover:text-blue-600">
                                     <i class="fa-solid fa-newspaper"></i>
                                     <span>News Articles</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('member.photos', ['username' => auth()->user()->username]) }}"
-                                    class="flex w-full items-center gap-x-3 rounded-lg py-2 px-2 hover:bg-blue-100 hover:text-blue-600">
-                                    <i class="fa-solid fa-images"></i>
-                                    <span>Photos</span>
                                 </a>
                             </li>
                             <li

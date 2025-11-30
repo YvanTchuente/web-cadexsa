@@ -65,7 +65,9 @@
             <nav class="w-full border-b-[1px] border-b-gray-200 sm:flex sm:justify-center">
                 <ul class="flex w-full gap-x-9 overflow-y-hidden whitespace-nowrap py-8 sm:justify-center"
                     id="account-navigation">
-                    @foreach ([['profile', route('member.profile', ['username' => $user->username])], ['news articles', route('member.articles', ['username' => $user->username])], ['photos', route('member.photos', ['username' => $user->username])]] as $link)
+                    @foreach (
+                        [['profile', route('member.profile', ['username' => $user->username])],
+                        ['news articles', route('member.articles', ['username' => $user->username])]] as $link)
                         <li>
                             <a href="{{ $link[1] }}"
                                 class="@if (url()->current() === $link[1]) text-blue-500 @endif font-[inter-semiBold] capitalize hover:text-blue-400">

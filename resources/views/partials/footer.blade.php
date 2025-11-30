@@ -22,7 +22,7 @@
             <div class="col-span-12 xs:col-span-6 sm:col-span-4 lg:col-span-2">
                 <h3 class="mb-6">Useful Links</h3>
                 <ul class="space-y-3">
-                    @foreach ([['News', route('news')], ['Events', route('events')], ['Gallery', '/photos'], ['Donate', '#'], ['Sponsor', '#']] as $link)
+                    @foreach ([['News', route('news')], ['Events', route('events')], ['Donate', '#'], ['Sponsor', '#']] as $link)
                         <li><a href="{{ $link[1] }}">{{ $link[0] }}</a></li>
                     @endforeach
                 </ul>

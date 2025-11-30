@@ -79,12 +79,4 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(NewsArticle::class, 'author_id');
     }
-
-    /**
-     * Get the photos uploaded by the user.
-     */
-    public function photos()
-    {
-        return $this->hasMany(Photo::class, 'author_id');
-    }
 }

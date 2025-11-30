@@ -6,7 +6,6 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\InquiryController;
@@ -40,17 +39,6 @@ Route::controller(NewsController::class)->group(function () {
 Route::controller(EventController::class)->group(function () {
     Route::get('/events', 'index')->name('events');
     Route::get('/events/{event}', 'show')->name('event');
-});
-
-Route::controller(PhotoController::class)->group(function () {
-    Route::get('/photos', 'index')->name('photos');
-    Route::get('/photos/{photo}', 'show')->where('photo', '\d+')->name('photo');
-    Route::middleware('auth')->group(function () {
-        Route::post('/photos/{photo}', 'update')->where('photo', '\d+')->can('manage-photo', 'photo');
-        Route::get('/photos/upload', 'create')->name('photo.upload');
-        Route::post('/photos/upload', 'store');
-        Route::post('/photos/delete', 'delete')->name('photo.delete');
-    });
 });
 
 Route::controller(InquiryController::class)->group(function () {
@@ -93,7 +81,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::prefix('/members/{username}')->group(function () {
             Route::get('/', 'showProfile')->name('member.profile');
             Route::get('/articles', 'showArticles')->name('member.articles');
-            Route::get('/photos', 'showPhotos')->name('member.photos');
         });
 
         Route::prefix('/account')->group(function () {

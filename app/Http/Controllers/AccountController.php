@@ -26,12 +26,6 @@ class AccountController extends Controller
         return view('account.articles', ['user' => $user]);
     }
 
-    public function showPhotos($username)
-    {
-        $user = User::where('username', $username)->firstOrFail();
-        return view('account.photos', ['user' => $user]);
-    }
-
     public function showProfileSettings()
     {
         return view('account.settings.profile', ['user' => auth()->user()]);

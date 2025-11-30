@@ -8,7 +8,6 @@ export default defineConfig({
                 "resources/css/app.css",
                 "resources/js/app.js",
                 "resources/js/edit-profile.js",
-                "resources/js/upload-photo.js",
             ],
             refresh: true,
         }),

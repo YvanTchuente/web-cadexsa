@@ -15,7 +15,6 @@ const sticky_header_exempted_pages = [
     "/reset-password",
     "/members(/.+)?",
     "/account(/.+)?",
-    "/photos/upload"
 ];
 
 window.addEventListener("scroll", () => {
